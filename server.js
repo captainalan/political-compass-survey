@@ -16,19 +16,33 @@ app.set("views", __dirname + "/app/views");
 // Serve static assets
 app.use(express.static(__dirname + "/app/public"));
 
+// JSON parsing middleware
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 app.get("/", (req, res) => {
     res.render("home");
+});
+
+app.post("/test", (req, res) => {
+    res.json(req.body);
 });
 
 app.get("/survey", (req, res) => {
     res.render("survey", {
         questions: [
             {
-                text: "test question 1"
+                id: "q1",
+                text: "The government should use force to protect the environment.",
             },
             {
-                text: "test question 2"
-            }
+                id: "q2",
+                text: "Education must be provided for all.",
+            },
+            {
+                id: "q3",
+                text: "A nuclear power plant is fine, but not in my backyard!",
+            },
         ]
     });
 });

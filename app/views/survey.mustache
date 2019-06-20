@@ -1,12 +1,40 @@
-<h1>Political Alignment Survey</h1>
+<link rel="stylesheet" href="/css/styles.css">
 
-This survey creates a political profile of you.
+<h1>Instructions</h1>
+<p>
+  Please complete all questions. We ask that you answer honestly. 
+  <i>Onegaeshimasu.</i>
+</p>
 
-<ul>
-{{#questions}}
-  <li>{{text}}</li>
-{{/questions}}
-</ul>
+<h2>The Questions</h2>
+
+<div class="question-block">
+  <form class="answer-block" action="/test" method="POST">
+    {{#questions}}
+    <div class="question-text">
+        {{text}}
+    </div>
+
+    <span style="color:red;margin-right:10px">
+    Completely Disagree
+    </span>
+    <input type="radio" name="{{id}}" value=1>
+    <input type="radio" name="{{id}}" value=2>
+    <input type="radio" name="{{id}}" value=3>
+    <input type="radio" name="{{id}}" value=4>
+    <input type="radio" name="{{id}}" value=5>
+    <span style="color:green;margin-left:10px">
+    Very Much Agree
+    </span>
+    {{/questions}}
+
+    <div>
+      <p>When you are all done, click the "Submit" button.</p>
+      <!-- Make this button do stuff -->
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
 
 <hr>
-Go back <a href="/">home</a>?
+Too much pressure? Go back <a href="/">home</a>.
