@@ -24,8 +24,9 @@ app.get("/", (req, res) => {
     res.render("home");
 });
 
-app.post("/test", (req, res) => {
-    res.json(req.body);
+app.post("/survey", (req, res) => {
+    console.log("Processing your responses...");
+    res.redirect("/results");
 });
 
 app.get("/survey", (req, res) => {
@@ -45,6 +46,10 @@ app.get("/survey", (req, res) => {
             },
         ]
     });
+});
+
+app.get("/results", (req, res) => {
+    res.render("results");
 });
 
 app.get("/layout", (req, res) => {
