@@ -5,9 +5,7 @@ const path = require("path");
 const express = require("express");
 const mustacheExpress = require("mustache-express");
 const app = express();
-
 const api = require(__dirname + "/app/api");
-api.hello(); // Should be a function? 
 
 // Register .mustache extension with The Mustache Express
 app.engine('mustache', mustacheExpress());
@@ -29,6 +27,8 @@ app.get("/survey", (req, res) => {
 app.get("/layout", (req, res) => {
     res.render("layout");
 });
+
+app.use("/api", api);
 
 app.listen(3000, () => {
     console.log("Your app is running on port 3000");
