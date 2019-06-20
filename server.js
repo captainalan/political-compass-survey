@@ -21,7 +21,16 @@ app.get("/", (req, res) => {
 });
 
 app.get("/survey", (req, res) => {
-    res.render("survey");
+    res.render("survey", {
+        questions: [
+            {
+                text: "test question 1"
+            },
+            {
+                text: "test question 2"
+            }
+        ]
+    });
 });
 
 app.get("/layout", (req, res) => {
