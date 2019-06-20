@@ -1,6 +1,13 @@
+// Plain Node things
+const path = require("path");
+
+// Express things
 const express = require("express");
 const mustacheExpress = require("mustache-express");
 const app = express();
+
+const api = require(__dirname + "/app/api");
+api.hello(); // Should be a function? 
 
 // Register .mustache extension with The Mustache Express
 app.engine('mustache', mustacheExpress());
